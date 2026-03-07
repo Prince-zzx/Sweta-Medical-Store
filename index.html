@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweta Medical Store — Goh, Aurangabad, Bihar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--g:#1a6b4a;--g2:#0f3d2a;--g3:#2d9e6f;--ac:#f5a623;--red:#e74c3c;--bg:#f0faf5}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:#1a2e22}
+#langBar{background:var(--g2);padding:8px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:1000}
+.lb{background:transparent;border:1.5px solid #aee6c8;color:#aee6c8;border-radius:20px;padding:4px 14px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:700}
+.lb.on{background:var(--ac);border-color:var(--ac);color:#fff}
+header{background:linear-gradient(135deg,var(--g2),var(--g) 55%,var(--g3));padding:0 16px}
+.hWrap{max-width:1280px;margin:0 auto}
+.hTop{display:flex;align-items:center;justify-content:space-between;padding:16px 0 8px;flex-wrap:wrap;gap:10px}
+.logoBox{display:flex;align-items:center;gap:12px}
+.logoIco{width:58px;height:58px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 4px 14px rgba(0,0,0,.2);flex-shrink:0}
+.storeName{font-family:'Playfair Display',serif;font-size:clamp(20px,4vw,32px);font-weight:900;color:#fff;line-height:1.1}
+.storeName span{color:var(--ac)}
+.storeTag{color:#aee6c8;font-size:12px;font-weight:600;margin-top:2px}
+.addrBox{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:10px 16px}
+.a1{font-size:15px;font-weight:900;color:#fff}
+.a2{font-size:11px;color:#aee6c8;font-weight:700;padding-left:4px}
+.a3{font-size:10px;color:rgba(174,230,200,.8);padding-left:4px}
+.cartBtn{background:var(--ac);color:#fff;border:none;border-radius:30px;padding:10px 20px;font-size:14px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(245,166,35,.4);font-family:inherit}
+.cartBadge{background:#fff;color:var(--ac);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
+.srchBox{background:#fff;border-radius:30px;display:flex;align-items:center;gap:8px;padding:0 16px;margin:10px 0;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.srchBox input{border:none;outline:none;background:transparent;padding:11px 0;font-size:14px;font-family:inherit;width:100%;color:#1a2e22}
+.catBar{display:flex;gap:6px;flex-wrap:wrap;padding-bottom:14px}
+.catBtn{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:25px;padding:5px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+.catBtn.on{background:var(--ac);border-color:var(--ac)}
+.hero{background:linear-gradient(120deg,#e8f7ef,#c8f0dc);padding:26px 16px 20px;text-align:center}
+.heroT{font-family:'Playfair Display',serif;font-size:clamp(20px,4vw,32px);font-weight:900;color:var(--g2);margin-bottom:6px}
+.heroS{color:#5a7a65;font-size:14px;font-weight:600}
+.chips{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.chip{background:#fff;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:700;color:var(--g);box-shadow:0 2px 8px rgba(26,107,74,.1)}
+main{max-width:1280px;margin:0 auto;padding:20px 16px}
+.secT{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,24px);font-weight:800;color:var(--g2);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:#fff;border-radius:16px;box-shadow:0 6px 24px rgba(26,107,74,.1);border:1px solid #c8e6d4;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.cardImg{background:linear-gradient(135deg,#e8f7ef,#c8f0dc);height:130px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative}
+.badge{position:absolute;top:8px;right:8px;color:#fff;border-radius:7px;padding:2px 9px;font-size:11px;font-weight:800}
+.badge.rx{background:var(--red)}.badge.otc{background:var(--g)}
+.cardBody{padding:14px;flex:1;display:flex;flex-direction:column;gap:6px}
+.cardName{font-size:14px;font-weight:800;color:#1a2e22;line-height:1.3}
+.useBox{font-size:12px;color:#5a7a65;background:#e8f7ef;border-radius:8px;padding:5px 9px;border-left:3px solid var(--g3)}
+.useL{color:var(--g2);display:block;font-size:10px;text-transform:uppercase;letter-spacing:.5px;font-weight:800;margin-bottom:1px}
+.cardFoot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px}
+.price{font-size:18px;font-weight:900;color:var(--g2)}
+.punit{font-size:10px;color:#5a7a65;font-weight:600}
+.btnGrp{display:flex;gap:5px}
+.iBtn{background:transparent;border:1.5px solid var(--g3);color:var(--g);border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+.aBtn{background:var(--g);color:#fff;border:none;border-radius:25px;padding:7px 12px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit}
+.aBtn.on{background:var(--ac)}
+.rxPill{background:#fff3f3;color:var(--red);border:1px solid #ffc5c5;border-radius:6px;font-size:10px;font-weight:800;padding:2px 7px;display:inline-block;margin-bottom:2px}
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
+.ov.open{display:flex}
+.modal{background:#fff;border-radius:18px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.25)}
+.mHead{background:linear-gradient(135deg,var(--g2),var(--g));color:#fff;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;border-radius:18px 18px 0 0}
+.mHead h2{font-family:'Playfair Display',serif;font-size:20px}
+.mClose{background:transparent;border:none;color:#fff;font-size:22px;cursor:pointer}
+.mBody{padding:18px 22px}
+.cItem{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #c8e6d4}
+.qCtrl{display:flex;align-items:center;gap:6px}
+.qBtn{width:28px;height:28px;border-radius:50%;border:2px solid var(--g);background:#fff;color:var(--g);font-size:16px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.totBox{background:#e8f7ef;border-radius:12px;padding:12px 16px;margin-top:12px}
+.totRow{display:flex;justify-content:space-between;margin-bottom:4px;font-size:13px;font-weight:700;color:#5a7a65}
+.totFinal{display:flex;justify-content:space-between;font-size:20px;font-weight:900;color:var(--g2);border-top:2px solid #c8e6d4;padding-top:10px;margin-top:8px}
+.fg{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.fg label{font-weight:800;font-size:11px;color:var(--g2);text-transform:uppercase;letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{border:2px solid #c8e6d4;border-radius:10px;padding:10px 13px;font-size:14px;font-family:inherit;outline:none;color:#1a2e22;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--g)}
+.fg input.err,.fg textarea.err{border-color:var(--red)}
+.fRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ordBtn{background:linear-gradient(135deg,var(--g),var(--g3));color:#fff;border:none;border-radius:30px;padding:14px;font-size:16px;font-weight:900;cursor:pointer;font-family:inherit;width:100%;margin-top:8px;box-shadow:0 6px 20px rgba(26,107,74,.3)}
+.iSec{margin-bottom:12px}
+.iSec h4{font-weight:800;color:var(--g2);margin-bottom:3px;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.iSec p{font-size:14px;line-height:1.6}
+.sucBox{text-align:center;padding:36px 22px}
+.emptyBox{text-align:center;padding:40px 20px;color:#5a7a65;font-size:15px;font-weight:700}
+footer{background:var(--g2);color:#aee6c8;text-align:center;padding:24px 16px;margin-top:40px}
+footer h3{font-family:'Playfair Display',serif;color:#fff;font-size:20px;margin-bottom:6px}
+footer p{font-size:13px;margin-bottom:3px}
+.fBadge{display:inline-flex;gap:8px;background:rgba(255,255,255,.1);border-radius:20px;padding:6px 16px;font-size:12px;margin-top:8px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--g2);color:#fff;border-radius:30px;padding:12px 24px;font-size:14px;font-weight:700;z-index:99999;transition:.3s;pointer-events:none;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.noRes{grid-column:1/-1;text-align:center;padding:50px;color:#5a7a65;font-size:17px;font-weight:700}
+@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}.addrBox{display:none}.fRow{grid-template-columns:1fr}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="langBar">
+  <span style="color:#aee6c8;font-weight:800;font-size:13px">🌐</span>
+  <button class="lb on" onclick="setLang('en',this)">English</button>
+  <button class="lb" onclick="setLang('hi',this)">हिन्दी</button>
+  <button class="lb" onclick="setLang('bho',this)">भोजपुरी</button>
+  <button class="lb" onclick="setLang('bn',this)">বাংলা</button>
+</div>
+
+<header>
+  <div class="hWrap">
+    <div class="hTop">
+      <div class="logoBox">
+        <div class="logoIco">💊</div>
+        <div>
+          <div class="storeName">Sweta <span>Medical</span> Store</div>
+          <div class="storeTag" id="tagline">✦ Your Trusted Health Partner Since 2010 ✦</div>
+        </div>
+      </div>
+      <div class="addrBox">
+        <div class="a1">📍 Goh, Aurangabad</div>
+        <div class="a2">Bihar, India · PIN 824203</div>
+        <div class="a3">🏥 Licensed Pharmacy · ⏰ Open 7 AM – 10 PM Daily</div>
+      </div>
+      <button class="cartBtn" onclick="openCart()">
+        🛒 <span id="cartLabel">Cart</span>
+        <span class="cartBadge" id="cartCount">0</span>
+      </button>
+    </div>
+    <div class="hWrap">
+      <div class="srchBox">
+        <span style="font-size:18px">🔍</span>
+        <input type="text" id="srch" placeholder="Search medicines..." oninput="renderGrid()">
+        <span id="clearSrch" style="cursor:pointer;color:#999;font-size:18px;display:none" onclick="clearSearch()">✕</span>
+      </div>
+      <div class="catBar" id="catBar"></div>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="heroT" id="heroT">🌿 Your Health, Our Priority</div>
+  <div class="heroS" id="heroS">Genuine medicines · Home delivery · Licensed pharmacist · Goh, Aurangabad Bihar</div>
+  <div class="chips">
+    <div class="chip">✅ <span id="g1">100% Genuine</span></div>
+    <div class="chip">🚚 <span id="g2">Home Delivery</span></div>
+    <div class="chip">💬 <span id="g3">24/7 Support</span></div>
+    <div class="chip">🏥 <span id="g4">Licensed Store</span></div>
+  </div>
+</div>
+
+<main>
+  <div class="secT">💊 <span id="secLabel">Our Medicines</span> <span id="medCount" style="font-size:14px;color:#5a7a65;font-family:Nunito,sans-serif;font-weight:600"></span></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>
+  <h3>🏥 Sweta Medical Store</h3>
+  <p>📍 Goh, Aurangabad, Bihar, India · PIN 824203</p>
+  <p>📞 +91 98765 43210 · ⏰ Open Daily: 7 AM – 10 PM</p>
+  <div class="fBadge">🛡️ Licensed · ✅ GST Registered · 💯 Genuine Medicines</div>
+</footer>
+
+<!-- CART MODAL -->
+<div class="ov" id="cartModal">
+  <div class="modal">
+    <div class="mHead">
+      <h2>🛒 <span id="cartTitle">Your Cart</span></h2>
+      <button class="mClose" onclick="closeCart()">✕</button>
+    </div>
+    <div class="mBody" id="cartBody"></div>
+  </div>
+</div>
+
+<!-- INFO MODAL -->
+<div class="ov" id="infoModal">
+  <div class="modal" style="max-width:440px">
+    <div class="mHead">
+      <h2 id="infoTitle">Info</h2>
+      <button class="mClose" onclick="closeInfo()">✕</button>
+    </div>
+    <div class="mBody" id="infoBody"></div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="ov" id="sucModal">
+  <div class="modal" style="max-width:400px">
+    <div class="sucBox">
+      <div style="font-size:72px;margin-bottom:10px">🎉</div>
+      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#0f3d2a;margin-bottom:8px" id="sucT">Order Placed!</div>
+      <div style="color:#5a7a65;font-size:14px;font-weight:600;margin-bottom:22px;line-height:1.7" id="sucS">Your order has been sent to Sweta Medical Store, Goh Aurangabad Bihar 824203. We will call you soon!</div>
+      <button class="ordBtn" style="max-width:220px;margin:0 auto" onclick="closeSuc()" id="sucBtn">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const TR={
+  en:{tag:"Your Trusted Health Partner Since 2010",heroT:"🌿 Your Health, Our Priority",heroS:"Genuine medicines · Home delivery · Licensed pharmacist · Goh, Aurangabad Bihar",g1:"100% Genuine",g2:"Home Delivery",g3:"24/7 Support",g4:"Licensed Store",cartLabel:"Cart",cartTitle:"Your Cart",secLabel:"Our Medicines",uses:"Used for",dose:"Dosage",side:"Side Effects",warn:"Warning",rx:"Prescription Required",otc:"No Rx Needed",add:"Add to Cart",added:"In Cart ✓",info:"ℹ️",empty:"Cart is empty!",sub:"Subtotal",del:"Delivery",grand:"Grand Total",free:"FREE ✅",formT:"Delivery Details",fName:"Full Name",fPhone:"Phone Number",fAddr:"Full Address",fCity:"City/Village",fPin:"PIN Code",fNote:"Special Notes",fPay:"Payment",fcod:"Cash on Delivery",fupi:"UPI / Online",order:"Place Order",sucT:"Order Placed! 🎉",sucS:"Your order has been sent to Sweta Medical Store, Goh Aurangabad Bihar 824203. We will call you soon!",sucBtn:"Continue Shopping",fillAll:"Please fill all required fields!",cats:{all:"All",fever:"🤒 Fever",pain:"💊 Pain",cold:"🤧 Cold",stomach:"🫃 Stomach",diabetes:"🩸 Diabetes",bp:"❤️ BP",vitamin:"🍊 Vitamins",antibiotic:"🦠 Antibiotic",skin:"🌿 Skin",eye:"👁️ Eye/Ear",child:"👶 Children"}},
+  hi:{tag:"2010 से आपका भरोसेमंद स्वास्थ्य साथी",heroT:"🌿 आपकी सेहत, हमारी ज़िम्मेदारी",heroS:"असली दवाइयाँ · घर डिलीवरी · लाइसेंसी फार्मासिस्ट",g1:"100% असली",g2:"घर डिलीवरी",g3:"24/7 सहायता",g4:"लाइसेंसी दुकान",cartLabel:"कार्ट",cartTitle:"आपकी कार्ट",secLabel:"हमारी दवाइयाँ",uses:"किस काम",dose:"खुराक",side:"दुष्प्रभाव",warn:"चेतावनी",rx:"पर्ची जरूरी",otc:"बिना पर्ची मिलती है",add:"कार्ट में डालें",added:"जोड़ा ✓",info:"ℹ️",empty:"कार्ट खाली है!",sub:"कुल",del:"डिलीवरी",grand:"कुल रकम",free:"मुफ्त ✅",formT:"डिलीवरी की जानकारी",fName:"आपका नाम",fPhone:"फोन नंबर",fAddr:"पूरा पता",fCity:"शहर/गाँव",fPin:"पिन कोड",fNote:"खास बात",fPay:"भुगतान",fcod:"नगद (घर पर)",fupi:"UPI / ऑनलाइन",order:"ऑर्डर करें",sucT:"ऑर्डर हो गया! 🎉",sucS:"आपका ऑर्डर स्वेता मेडिकल स्टोर, गोह औरंगाबाद बिहार 824203 को भेज दिया गया!",sucBtn:"और खरीदारी करें",fillAll:"कृपया सभी फील्ड भरें!",cats:{all:"सभी",fever:"🤒 बुखार",pain:"💊 दर्द",cold:"🤧 सर्दी",stomach:"🫃 पेट",diabetes:"🩸 शुगर",bp:"❤️ बीपी",vitamin:"🍊 विटामिन",antibiotic:"🦠 एंटीबायोटिक",skin:"🌿 त्वचा",eye:"👁️ आँख/कान",child:"👶 बच्चे"}},
+  bho:{tag:"2010 से रउआ के भरोसेमंद दुकान",heroT:"🌿 रउआ के सेहत हमार जिम्मा",heroS:"असल दवाई · घरे डिलीवरी · गोह औरंगाबाद बिहार",g1:"100% असल",g2:"घरे डिलीवरी",g3:"हर बखत मदद",g4:"लाइसेंसी दुकान",cartLabel:"कार्ट",cartTitle:"रउआ के कार्ट",secLabel:"हमार दवाई",uses:"काम",dose:"खुराक",side:"नुकसान",warn:"सावधानी",rx:"पर्ची चाही",otc:"बिना पर्ची मिली",add:"कार्ट में डालीं",added:"डललाई ✓",info:"ℹ️",empty:"कार्ट खाली बा!",sub:"कुल",del:"डिलीवरी",grand:"कुल रकम",free:"मुफ्त ✅",formT:"डिलीवरी के जानकारी",fName:"नाम",fPhone:"फोन",fAddr:"पता",fCity:"शहर/गाँव",fPin:"पिन कोड",fNote:"खास बात",fPay:"पइसा",fcod:"नगद (घरे)",fupi:"UPI",order:"ऑर्डर करीं",sucT:"ऑर्डर हो गइल! 🎉",sucS:"रउआ के ऑर्डर गोह औरंगाबाद बिहार 824203 भेजाई गइल!",sucBtn:"आउर खरीदीं",fillAll:"सब फील्ड भरीं!",cats:{all:"सब",fever:"🤒 बुखार",pain:"💊 दरद",cold:"🤧 सर्दी",stomach:"🫃 पेट",diabetes:"🩸 शुगर",bp:"❤️ बीपी",vitamin:"🍊 विटामिन",antibiotic:"🦠 एंटीबायोटिक",skin:"🌿 चमड़ी",eye:"👁️ आँख/कान",child:"👶 बच्चा"}},
+  bn:{tag:"২০১০ থেকে আপনার বিশ্বস্ত স্বাস্থ্য সঙ্গী",heroT:"🌿 আপনার স্বাস্থ্য, আমাদের দায়িত্ব",heroS:"আসল ওষুধ · বাড়িতে ডেলিভারি · লাইসেন্সপ্রাপ্ত ফার্মাসিস্ট",g1:"১০০% আসল",g2:"বাড়িতে ডেলিভারি",g3:"২৪/৭ সহায়তা",g4:"লাইসেন্সপ্রাপ্ত",cartLabel:"কার্ট",cartTitle:"আপনার কার্ট",secLabel:"আমাদের ওষুধ",uses:"ব্যবহার",dose:"মাত্রা",side:"পার্শ্বপ্রতিক্রিয়া",warn:"সতর্কতা",rx:"প্রেসক্রিপশন লাগবে",otc:"প্রেসক্রিপশন ছাড়া",add:"কার্টে যোগ করুন",added:"যোগ হয়েছে ✓",info:"ℹ️",empty:"কার্ট খালি!",sub:"মোট",del:"ডেলিভারি",grand:"সর্বমোট",free:"বিনামূল্যে ✅",formT:"ডেলিভারির তথ্য",fName:"আপনার নাম",fPhone:"ফোন নম্বর",fAddr:"সম্পূর্ণ ঠিকানা",fCity:"শহর/গ্রাম",fPin:"পিন কোড",fNote:"বিশেষ নোট",fPay:"পেমেন্ট",fcod:"নগদ (বাড়িতে)",fupi:"UPI / অনলাইন",order:"অর্ডার করুন",sucT:"অর্ডার হয়েছে! 🎉",sucS:"আপনার অর্ডার স্বেতা মেডিকেল স্টোর, গোহ ঔরঙ্গাবাদ বিহার 824203-এ পাঠানো হয়েছে!",sucBtn:"আরও কেনাকাটা",fillAll:"সব ফিল্ড পূরণ করুন!",cats:{all:"সব",fever:"🤒 জ্বর",pain:"💊 ব্যথা",cold:"🤧 সর্দি",stomach:"🫃 পেট",diabetes:"🩸 ডায়াবেটিস",bp:"❤️ বিপি",vitamin:"🍊 ভিটামিন",antibiotic:"🦠 অ্যান্টিবায়োটিক",skin:"🌿 ত্বক",eye:"👁️ চোখ/কান",child:"👶 শিশু"}}
+};
+
+const MEDS=[
+  {id:1,e:"🌡️",name:"Paracetamol 500mg",cat:"fever",price:18,unit:"strip",rx:false,uen:"Fever, headache, body pain",uhi:"बुखार, सिरदर्द, बदन दर्द",den:"1 tablet every 4-6 hrs (max 4/day)",dhi:"हर 4-6 घंटे में 1 गोली",se:"Nausea if taken empty stomach",w:"Do not exceed 4 tablets per day"},
+  {id:2,e:"💊",name:"Crocin 650mg",cat:"fever",price:28,unit:"strip",rx:false,uen:"High fever, severe headache",uhi:"तेज बुखार, तेज सिरदर्द",den:"1 tablet every 6 hours",dhi:"हर 6 घंटे में 1 गोली",se:"Mild nausea",w:"See doctor if fever persists more than 3 days"},
+  {id:3,e:"🌡️",name:"Dolo 650",cat:"fever",price:32,unit:"strip",rx:false,uen:"Fever and moderate pain",uhi:"बुखार और दर्द",den:"1 tablet 3 times daily",dhi:"दिन में 3 बार",se:"Rare allergic reaction",w:"Not for children under 12"},
+  {id:4,e:"💊",name:"Meftal Spas",cat:"fever",price:45,unit:"strip",rx:false,uen:"Menstrual pain, cramps, fever",uhi:"मासिक दर्द, पेट में मरोड़",den:"1 tablet twice daily",dhi:"दिन में 2 बार",se:"Drowsiness, dry mouth",w:"Avoid during pregnancy"},
+  {id:5,e:"💊",name:"Ibuprofen 400mg",cat:"pain",price:25,unit:"strip",rx:false,uen:"Pain, inflammation, fever",uhi:"दर्द, सूजन, बुखार",den:"1 tablet 3 times after food",dhi:"खाने के बाद दिन में 3 बार",se:"Acidity, stomach irritation",w:"Always take after food"},
+  {id:6,e:"💊",name:"Combiflam",cat:"pain",price:35,unit:"strip",rx:false,uen:"Joint pain, muscle pain, headache",uhi:"जोड़ों का दर्द, मांसपेशी दर्द",den:"1 tablet twice daily after food",dhi:"खाने के बाद दिन में 2 बार",se:"Acidity, nausea",w:"Avoid in kidney problems"},
+  {id:7,e:"💊",name:"Diclofenac 50mg",cat:"pain",price:22,unit:"strip",rx:true,uen:"Arthritis, back pain, dental pain",uhi:"गठिया, कमर दर्द, दांत दर्द",den:"1 tablet twice daily after food",dhi:"खाने के बाद दिन में 2 बार",se:"GI issues, dizziness",w:"Prescription required"},
+  {id:8,e:"🟡",name:"Moov Cream 50g",cat:"pain",price:110,unit:"tube",rx:false,uen:"Muscle and joint pain relief",uhi:"मांसपेशी और जोड़ों का दर्द",den:"Apply 2-3 times daily",dhi:"दिन में 2-3 बार लगाएं",se:"Mild skin irritation",w:"External use only"},
+  {id:9,e:"🤧",name:"Cetirizine 10mg",cat:"cold",price:15,unit:"strip",rx:false,uen:"Allergy, runny nose, sneezing",uhi:"एलर्जी, नाक बहना, छींकें",den:"1 tablet at night",dhi:"रात में 1 गोली",se:"Drowsiness",w:"Avoid driving after taking"},
+  {id:10,e:"🤧",name:"Sinarest",cat:"cold",price:38,unit:"strip",rx:false,uen:"Cold, nasal congestion, sinus",uhi:"सर्दी, नाक बंद, साइनस",den:"1 tablet twice daily",dhi:"दिन में 2 बार",se:"Drowsiness, dry mouth",w:"Avoid in high BP patients"},
+  {id:11,e:"🫙",name:"Benadryl Cough Syrup",cat:"cold",price:95,unit:"bottle",rx:false,uen:"Cough, cold, throat irritation",uhi:"खांसी, सर्दी, गले की खराश",den:"2 tsp 3 times daily",dhi:"दिन में 3 बार 2 चम्मच",se:"Drowsiness",w:"Do not overdose"},
+  {id:12,e:"🟦",name:"Vicks VapoRub",cat:"cold",price:75,unit:"tube",rx:false,uen:"Blocked nose, cold, body ache",uhi:"नाक बंद, सर्दी, बदन दर्द",den:"Apply on chest and back",dhi:"सीने और पीठ पर लगाएं",se:"Skin irritation if overused",w:"Not for infants under 2 years"},
+  {id:13,e:"🫃",name:"Pantoprazole 40mg",cat:"stomach",price:35,unit:"strip",rx:false,uen:"Acidity, GERD, stomach ulcers",uhi:"एसिडिटी, अल्सर, जलन",den:"1 tablet before breakfast",dhi:"नाश्ते से पहले",se:"Headache, diarrhea",w:"Long-term use needs medical advice"},
+  {id:14,e:"🧃",name:"ORS Electrolyte",cat:"stomach",price:15,unit:"sachet",rx:false,uen:"Dehydration, loose motions, vomiting",uhi:"पानी की कमी, दस्त, उल्टी",den:"1 sachet in 1 litre water",dhi:"1 लीटर पानी में 1 पाउच",se:"None",w:"Use only clean drinking water"},
+  {id:15,e:"💊",name:"Metronidazole 400mg",cat:"stomach",price:28,unit:"strip",rx:true,uen:"Stomach infection, diarrhea, amoeba",uhi:"पेट का इन्फेक्शन, दस्त",den:"1 tablet 3 times daily after food",dhi:"खाने के बाद दिन में 3 बार",se:"Nausea, metallic taste",w:"Avoid alcohol completely"},
+  {id:16,e:"🫙",name:"Digene Syrup",cat:"stomach",price:85,unit:"bottle",rx:false,uen:"Gas, bloating, indigestion, acidity",uhi:"गैस, बदहजमी, एसिडिटी",den:"2 tsp after meals",dhi:"खाने के बाद 2 चम्मच",se:"Constipation (rare)",w:"Shake well before use"},
+  {id:17,e:"🩸",name:"Metformin 500mg",cat:"diabetes",price:42,unit:"strip",rx:true,uen:"Type 2 Diabetes - controls blood sugar",uhi:"शुगर - ब्लड शुगर कम करती है",den:"1 tablet twice daily with food",dhi:"खाने के साथ दिन में 2 बार",se:"Nausea, stomach upset initially",w:"Regular blood sugar monitoring required"},
+  {id:18,e:"🩸",name:"Glimepiride 2mg",cat:"diabetes",price:55,unit:"strip",rx:true,uen:"Type 2 Diabetes - lowers blood glucose",uhi:"शुगर लेवल घटाना",den:"1 tablet before breakfast",dhi:"नाश्ते से पहले",se:"Low sugar (hypoglycemia), dizziness",w:"Never skip meals after taking"},
+  {id:19,e:"📊",name:"Glucometer Strips",cat:"diabetes",price:299,unit:"box",rx:false,uen:"Test blood sugar level at home",uhi:"घर पर ब्लड शुगर टेस्ट",den:"As required",dhi:"जरूरत पर",se:"None",w:"Check expiry date before use"},
+  {id:20,e:"❤️",name:"Amlodipine 5mg",cat:"bp",price:38,unit:"strip",rx:true,uen:"High blood pressure, chest pain",uhi:"हाई बीपी, सीने में दर्द",den:"1 tablet once daily",dhi:"दिन में 1 बार",se:"Ankle swelling, flushing",w:"Do not stop suddenly without doctor advice"},
+  {id:21,e:"❤️",name:"Atenolol 50mg",cat:"bp",price:32,unit:"strip",rx:true,uen:"High BP, irregular heartbeat",uhi:"बीपी, दिल की धड़कन",den:"1 tablet once daily",dhi:"दिन में 1 बार",se:"Fatigue, cold hands and feet",w:"Do not stop abruptly"},
+  {id:22,e:"❤️",name:"Ecosprin 75mg",cat:"bp",price:22,unit:"strip",rx:true,uen:"Prevents heart attack, blood thinning",uhi:"हार्ट अटैक से बचाव",den:"1 tablet daily after food",dhi:"खाने के बाद रोज",se:"Stomach irritation, bleeding risk",w:"Avoid if you have stomach ulcers"},
+  {id:23,e:"🍊",name:"Vitamin C 500mg",cat:"vitamin",price:45,unit:"strip",rx:false,uen:"Immunity boost, skin health, antioxidant",uhi:"इम्यूनिटी, त्वचा के लिए",den:"1 tablet daily after food",dhi:"खाने के बाद दिन में 1 बार",se:"Loose stools if taken in excess",w:"Take after food"},
+  {id:24,e:"☀️",name:"Vitamin D3 60000 IU",cat:"vitamin",price:65,unit:"strip",rx:false,uen:"Bone strength, calcium absorption, immunity",uhi:"हड्डियाँ मजबूत, इम्यूनिटी",den:"1 capsule weekly",dhi:"हफ्ते में 1 कैप्सूल",se:"Nausea if overdosed",w:"Do not exceed without medical advice"},
+  {id:25,e:"💊",name:"Becosules Capsule",cat:"vitamin",price:38,unit:"strip",rx:false,uen:"B-complex vitamins, energy, hair and nails",uhi:"ऊर्जा, बाल और नाखून",den:"1 capsule daily after food",dhi:"खाने के बाद 1 कैप्सूल",se:"Urine turns yellow (normal)",w:"None significant"},
+  {id:26,e:"🦴",name:"Calcium + Vit D3",cat:"vitamin",price:85,unit:"strip",rx:false,uen:"Strong bones and teeth, prevents osteoporosis",uhi:"हड्डियाँ और दांत मजबूत",den:"1 tablet twice daily with meals",dhi:"खाने के साथ दिन में 2 बार",se:"Constipation, bloating",w:"Always take with meals"},
+  {id:27,e:"🦠",name:"Amoxicillin 500mg",cat:"antibiotic",price:85,unit:"strip",rx:true,uen:"Bacterial infections - throat, ear, UTI",uhi:"बैक्टीरियल इन्फेक्शन, गला, कान",den:"1 capsule 3 times daily for 5-7 days",dhi:"दिन में 3 बार 5-7 दिन",se:"Nausea, allergic reaction",w:"Complete the full course always"},
+  {id:28,e:"🦠",name:"Azithromycin 500mg",cat:"antibiotic",price:65,unit:"strip",rx:true,uen:"Chest infection, typhoid, pneumonia",uhi:"छाती का संक्रमण, टाइफाइड",den:"1 tablet once daily for 3-5 days",dhi:"रोज 1 बार 3-5 दिन",se:"Nausea, loose stools",w:"Consult doctor before use"},
+  {id:29,e:"🦠",name:"Ciprofloxacin 500mg",cat:"antibiotic",price:48,unit:"strip",rx:true,uen:"UTI, diarrhea, typhoid, skin infections",uhi:"UTI, दस्त, टाइफाइड",den:"1 tablet twice daily for 5 days",dhi:"दिन में 2 बार 5 दिन",se:"Tendon pain, dizziness",w:"Avoid excess sun exposure"},
+  {id:30,e:"🟤",name:"Betadine Ointment",cat:"skin",price:65,unit:"tube",rx:false,uen:"Cuts, wounds, burns, skin infections",uhi:"घाव, कटना, जलना",den:"Apply on clean wound 1-2 times daily",dhi:"दिन में 1-2 बार घाव पर",se:"Skin staining",w:"External use only"},
+  {id:31,e:"🌿",name:"Candid Cream",cat:"skin",price:75,unit:"tube",rx:false,uen:"Fungal infection, ringworm, itching",uhi:"फंगल इन्फेक्शन, दाद, खुजली",den:"Apply twice daily for 2-4 weeks",dhi:"2-4 हफ्ते दिन में 2 बार",se:"Mild burning initially",w:"Avoid on broken or damaged skin"},
+  {id:32,e:"🩷",name:"Calamine Lotion",cat:"skin",price:55,unit:"bottle",rx:false,uen:"Rashes, sunburn, prickly heat, eczema",uhi:"दाने, सनबर्न, घमौरी",den:"Apply 2-3 times daily",dhi:"दिन में 2-3 बार",se:"None known",w:"Keep away from eyes"},
+  {id:33,e:"👃",name:"Otrivin Nasal Drops",cat:"eye",price:68,unit:"bottle",rx:false,uen:"Blocked nose, sinus, nasal congestion",uhi:"बंद नाक, साइनस",den:"2 drops per nostril 2-3 times daily",dhi:"हर नथुने में 2 बूंद",se:"Dryness, irritation",w:"Do not use for more than 5 days"},
+  {id:34,e:"👁️",name:"Optrex Eye Drops",cat:"eye",price:85,unit:"bottle",rx:false,uen:"Eye redness, irritation, dryness",uhi:"आंख में जलन, लालिमा",den:"2 drops 3 times daily",dhi:"दिन में 3 बार 2 बूंद",se:"Mild stinging",w:"Remove contact lenses before use"},
+  {id:35,e:"👂",name:"Waxsol Ear Drops",cat:"eye",price:72,unit:"bottle",rx:false,uen:"Ear wax removal, ear blockage",uhi:"कान की मैल, बंद कान",den:"Fill ear canal, wait 5 minutes",dhi:"कान भरें, 5 मिनट रखें",se:"Mild irritation",w:"Do not use if eardrum is damaged"},
+  {id:36,e:"👶",name:"Calpol Syrup",cat:"child",price:55,unit:"bottle",rx:false,uen:"Fever and pain in children (2-12 years)",uhi:"बच्चों को बुखार और दर्द",den:"15mg per kg bodyweight every 4-6 hours",dhi:"वजन अनुसार हर 4-6 घंटे",se:"Rare rash or nausea",w:"Always calculate dose by child weight"},
+  {id:37,e:"🍼",name:"Bonnisan Drops",cat:"child",price:88,unit:"bottle",rx:false,uen:"Colic, gas, indigestion in infants",uhi:"शिशु में पेट दर्द, गैस",den:"0.5 to 1ml after each feeding",dhi:"हर दूध के बाद 0.5-1ml",se:"None significant",w:"For infants only"},
+  {id:38,e:"🫙",name:"Junior Lanzol Syrup",cat:"child",price:75,unit:"bottle",rx:false,uen:"Acidity and acid reflux in children",uhi:"बच्चों में एसिडिटी",den:"As per pediatrician advice",dhi:"डॉक्टर की सलाह",se:"Headache (rare)",w:"Consult pediatrician before use"}
+];
+
+const CATS=["all","fever","pain","cold","stomach","diabetes","bp","vitamin","antibiotic","skin","eye","child"];
+let lang="en",activeCat="all",cart=[],selMed=null;
+const L=()=>TR[lang];
+const isLoc=()=>lang!=="en";
+
+function setLang(l,btn){
+  lang=l;
+  document.querySelectorAll(".lb").forEach(b=>b.classList.remove("on"));
+  btn.classList.add("on");
+  applyLang();renderCats();renderGrid();renderCart();
+}
+
+function applyLang(){
+  const l=L();
+  document.getElementById("tagline").textContent="✦ "+l.tag+" ✦";
+  document.getElementById("heroT").textContent=l.heroT;
+  document.getElementById("heroS").textContent=l.heroS;
+  document.getElementById("g1").textContent=l.g1;
+  document.getElementById("g2").textContent=l.g2;
+  document.getElementById("g3").textContent=l.g3;
+  document.getElementById("g4").textContent=l.g4;
+  document.getElementById("cartLabel").textContent=l.cartLabel;
+  document.getElementById("cartTitle").textContent=l.cartTitle;
+  document.getElementById("secLabel").textContent=l.secLabel;
+  document.getElementById("sucT").textContent=l.sucT;
+  document.getElementById("sucS").textContent=l.sucS;
+  document.getElementById("sucBtn").textContent=l.sucBtn;
+  document.getElementById("srch").placeholder=lang==="hi"?"दवाई खोजें...":lang==="bho"?"दवाई खोजीं...":lang==="bn"?"ওষুধ খুঁজুন...":"Search medicines...";
+}
+
+function renderCats(){
+  const l=L();
+  document.getElementById("catBar").innerHTML=CATS.map(c=>
+    `<button class="catBtn${activeCat===c?" on":""}" onclick="setCat('${c}',this)">${l.cats[c]}</button>`
+  ).join("");
+}
+
+function setCat(c,el){
+  activeCat=c;
+  document.querySelectorAll(".catBtn").forEach(b=>b.classList.remove("on"));
+  el.classList.add("on");
+  renderGrid();
+}
+
+function clearSearch(){
+  document.getElementById("srch").value="";
+  document.getElementById("clearSrch").style.display="none";
+  renderGrid();
+}
+
+function renderGrid(){
+  const q=document.getElementById("srch").value.toLowerCase();
+  document.getElementById("clearSrch").style.display=q?"inline":"none";
+  const list=MEDS.filter(m=>(activeCat==="all"||m.cat===activeCat)&&(!q||m.name.toLowerCase().includes(q)||m.uen.toLowerCase().includes(q)));
+  document.getElementById("medCount").textContent="("+list.length+")";
+  const l=L();
+  if(!list.length){
+    document.getElementById("grid").innerHTML=`<div class="noRes">😔 No medicines found. Try a different search.</div>`;
+    return;
+  }
+  document.getElementById("grid").innerHTML=list.map(m=>{
+    const ic=cart.find(c=>c.id===m.id);
+    return`<div class="card">
+      <div class="cardImg"><span>${m.e}</span><span class="badge ${m.rx?"rx":"otc"}">${m.rx?"Rx":"OTC"}</span></div>
+      <div class="cardBody">
+        ${m.rx?`<span class="rxPill">🩺 ${l.rx}</span>`:""}
+        <div class="cardName">${m.name}</div>
+        <div class="useBox"><strong class="useL">${l.uses}</strong>${isLoc()?m.uhi:m.uen}</div>
+        <div class="cardFoot">
+          <div><div class="price">₹${m.price}</div><div class="punit">per ${m.unit}</div></div>
+          <div class="btnGrp">
+            <button class="iBtn" onclick="openInfo(${m.id})">ℹ️</button>
+            <button class="aBtn${ic?" on":""}" onclick="addToCart(${m.id})">${ic?l.added:"🛒 "+l.add}</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function addToCart(id){
+  const m=MEDS.find(x=>x.id===id);
+  const idx=cart.findIndex(c=>c.id===id);
+  if(idx===-1)cart.push({...m,qty:1});else cart[idx].qty++;
+  updateCount();renderGrid();showToast("✅ "+m.name+" added!");
+}
+
+function changeQty(id,d){
+  const idx=cart.findIndex(c=>c.id===id);
+  if(idx===-1)return;
+  cart[idx].qty+=d;
+  if(cart[idx].qty<=0)cart.splice(idx,1);
+  updateCount();renderCart();renderGrid();
+}
+
+function updateCount(){
+  document.getElementById("cartCount").textContent=cart.reduce((s,c)=>s+c.qty,0);
+}
+
+function openCart(){document.getElementById("cartModal").classList.add("open");renderCart();}
+function closeCart(){document.getElementById("cartModal").classList.remove("open");}
+
+function renderCart(){
+  const body=document.getElementById("cartBody");if(!body)return;
+  const l=L();
+  if(!cart.length){body.innerHTML=`<div class="emptyBox"><div style="font-size:54px;margin-bottom:10px">🛒</div>${l.empty}</div>`;return;}
+  const sub=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const del=sub>=500?0:40;
+  const grand=sub+del;
+  body.innerHTML=`
+    ${cart.map(c=>`<div class="cItem">
+      <span style="font-size:30px">${c.e}</span>
+      <div style="flex:1"><div style="font-weight:800;font-size:14px">${c.name}</div>
+      <div style="color:#1a6b4a;font-weight:700;font-size:13px">₹${c.price} × ${c.qty} = ₹${c.price*c.qty}</div></div>
+      <div class="qCtrl">
+        <button class="qBtn" onclick="changeQty(${c.id},-1)">−</button>
+        <span style="font-weight:800;font-size:14px;min-width:20px;text-align:center">${c.qty}</span>
+        <button class="qBtn" onclick="changeQty(${c.id},1)">+</button>
+      </div>
+    </div>`).join("")}
+    <div class="totBox">
+      <div class="totRow"><span>${l.sub}</span><span>₹${sub}</span></div>
+      <div class="totRow"><span>${l.del}</span><span>${del===0?l.free:"₹"+del}</span></div>
+      <div class="totFinal"><span>${l.grand}</span><span>₹${grand}</span></div>
+    </div>
+    <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:#0f3d2a;margin:18px 0 12px">📝 ${l.formT}</div>
+    <div class="fg"><label>${l.fName} *</label><input id="fName" placeholder="👤 ${l.fName}"></div>
+    <div class="fg"><label>${l.fPhone} *</label><input id="fPhone" type="tel" placeholder="📞 +91 XXXXX XXXXX"></div>
+    <div class="fg"><label>${l.fAddr} *</label><textarea id="fAddr" rows="2" placeholder="🏠 ${l.fAddr}" style="resize:none"></textarea></div>
+    <div class="fRow">
+      <div class="fg"><label>${l.fCity} *</label><input id="fCity" placeholder="🌆"></div>
+      <div class="fg"><label>${l.fPin} *</label><input id="fPin" type="number" placeholder="📮 824203"></div>
+    </div>
+    <div class="fg"><label>${l.fNote}</label><textarea id="fNote" rows="2" style="resize:none"></textarea></div>
+    <div class="fg"><label>${l.fPay}</label>
+      <select id="fPay"><option value="cod">${l.fcod}</option><option value="upi">${l.fupi}</option></select>
+    </div>
+    <button class="ordBtn" onclick="placeOrder()">🚀 ${l.order} — ₹${grand}</button>`;
+}
+
+function placeOrder(){
+  const l=L();
+  const name=document.getElementById("fName")?.value.trim();
+  const phone=document.getElementById("fPhone")?.value.trim();
+  const addr=document.getElementById("fAddr")?.value.trim();
+  const city=document.getElementById("fCity")?.value.trim();
+  const pin=document.getElementById("fPin")?.value.trim();
+  const note=document.getElementById("fNote")?.value.trim();
+  const pay=document.getElementById("fPay")?.value;
+  if(!name||!phone||phone.length<10||!addr||!city||!pin||pin.length<6){showToast("⚠️ "+l.fillAll);return;}
+  const sub=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const del=sub>=500?0:40;
+  const grand=sub+del;
+  const items=cart.map(c=>`${c.name} x${c.qty} = Rs.${c.price*c.qty}`).join(" | ");
+  fetch("https://formsubmit.co/ajax/offx.princekumar@gmail.com",{
+    method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+    body:JSON.stringify({_subject:`🏥 New Order: ${name} — ₹${grand}`,Name:name,Phone:phone,Address:`${addr}, ${city} - ${pin}`,Payment:pay==="cod"?"Cash on Delivery":"UPI/Online",Items:items,Subtotal:`₹${sub}`,Delivery:`₹${del}`,Grand:`₹${grand}`,Notes:note||"None",_template:"table"})
+  }).catch(()=>{});
+  cart=[];updateCount();closeCart();
+  document.getElementById("sucModal").classList.add("open");
+  renderGrid();
+}
+
+function closeSuc(){document.getElementById("sucModal").classList.remove("open");}
+
+function openInfo(id){
+  const m=MEDS.find(x=>x.id===id);selMed=m;
+  const l=L();
+  document.getElementById("infoTitle").textContent=m.e+" "+m.name;
+  document.getElementById("infoBody").innerHTML=`
+    <div class="iSec"><h4>${l.uses}</h4><p>${isLoc()?m.uhi:m.uen}</p></div>
+    <div class="iSec"><h4>${l.dose}</h4><p>${isLoc()?m.dhi:m.den}</p></div>
+    <div class="iSec"><h4>${l.side}</h4><p>${m.se}</p></div>
+    <div class="iSec"><h4>⚠️ ${l.warn}</h4><p>${m.w}</p></div>
+    <div style="margin-bottom:14px"><span style="background:${m.rx?"#fff3f3":"#f0faf5"};color:${m.rx?"#e74c3c":"#1a6b4a"};border:1.5px solid ${m.rx?"#ffc5c5":"#c8e6d4"};border-radius:8px;padding:6px 14px;font-weight:800;font-size:13px">${m.rx?"🩺 "+l.rx:"✅ "+l.otc}</span></div>
+    <button class="ordBtn" onclick="addToCart(${m.id});closeInfo()">🛒 ${l.add}</button>`;
+  document.getElementById("infoModal").classList.add("open");
+}
+function closeInfo(){document.getElementById("infoModal").classList.remove("open");}
+
+document.querySelectorAll(".ov").forEach(o=>o.addEventListener("click",e=>{if(e.target===o)o.classList.remove("open");}));
+
+function showToast(msg){
+  const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),2500);
+}
+
+applyLang();renderCats();renderGrid();
+</script>
+</body>
+</html>
